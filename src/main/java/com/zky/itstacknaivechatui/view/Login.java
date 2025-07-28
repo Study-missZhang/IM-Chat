@@ -72,4 +72,11 @@ public class Login extends Stage {
             System.err.println("错误：无法加载图标资源流");
         }
     }
+
+    private double xOffset;
+    private double yOffset;
+
+    private void move() {
+
+    }
 }
