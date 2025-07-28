@@ -1,8 +1,12 @@
 package com.zky.itstacknaivechatui.view;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -73,10 +77,68 @@ public class Login extends Stage {
         }
     }
 
+    public <T> T $(String id, Class<T> clazz) {
+        return (T) root.lookup("#" + id);
+    }
+
     private double xOffset;
     private double yOffset;
 
+    /**
+     * 设置鼠标移动事件
+     */
     private void move() {
+        // 鼠标按下事件
+        root.setOnMousePressed(event -> {
+            xOffset = getX() - event.getSceneX();
+            yOffset = getY() - event.getSceneY();
+            root.setCursor(Cursor.CLOSED_HAND);
+        });
+        // 鼠标拖到事件
+        root.setOnMouseDragged(event -> {
+            setX(event.getSceneX() + xOffset);
+            setY(event.getSceneY() + yOffset);
+        });
+        // 鼠标释放事件
+        root.setOnMouseReleased(event -> {
+            root.setCursor(Cursor.DEFAULT);
+        });
+    }
+
+    /**
+     * 最小化事件
+     */
+    private void min() {
+        Button login_min = $("login_min", Button.class);
+        login_min.setOnAction(event -> {
+            System.out.println("最小化窗体");
+            setIconified(true);
+        });
+    }
+
+    /**
+     * 退出窗体事件
+     */
+    private void quit() {
+        Button login_close = $("login_close", Button.class);
+        login_close.setOnAction(event -> {
+            System.out.println("退出窗体");
+            close();
+            System.exit(0);
+        });
+    }
+
+    /**
+     * 登录操作事件
+     */
+    private void login() {
+        TextField userId = $("userId", TextField.class);
+        PasswordField userPassword = $("userPassword", PasswordField.class);
+        $("login_button", Button.class).setOnAction(event -> {
+            System.out.println("登录操作");
+            System.out.println("用户ID: " + userId.getText());
+            System.out.println("用户密码: " + userPassword.getText());
+        });
 
     }
 }
