@@ -1,6 +1,8 @@
 package com.zky.itstacknaivechatui;
 
-import com.zky.itstacknaivechatui.view.Login;
+import com.zky.itstacknaivechatui.view.UIObject;
+import com.zky.itstacknaivechatui.view.login.ILoginMethod;
+import com.zky.itstacknaivechatui.view.login.LoginController;
 import javafx.stage.Stage;
 
 /**
@@ -11,8 +13,11 @@ import javafx.stage.Stage;
 public class Application extends javafx.application.Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Login login = new Login();
-        login.show();
+        ILoginMethod login = new LoginController((userId, userPassword) -> {
+            System.out.println("登录 userId: " + userId + "userPassword: " + userPassword);
+        });
+
+        login.doShow();
     }
 
     public static void main(String[] args) {

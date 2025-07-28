@@ -8,4 +8,5 @@ module com.zky.itstacknaivechatui {
     opens com.zky.itstacknaivechatui.login.img.system to javafx.graphics;
 
     exports com.zky.itstacknaivechatui;
+    exports com.zky.itstacknaivechatui.view;
 }
