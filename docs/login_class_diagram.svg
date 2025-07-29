@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 标题 -->
+  <text x="400" y="30" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">登录模块类图</text>
+  
+  <!-- UIObject 抽象类 -->
+  <rect x="300" y="50" width="200" height="100" fill="#E8F4F9" stroke="#2980B9" stroke-width="2"/>
+  <line x1="300" y1="80" x2="500" y2="80" stroke="#2980B9" stroke-width="2"/>
+  <line x1="300" y1="110" x2="500" y2="110" stroke="#2980B9" stroke-width="2"/>
+  <text x="400" y="70" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">UIObject</text>
+  <text x="310" y="100" font-family="Arial" font-size="12">+ $(String id, Class&lt;T&gt; clazz): T</text>
+  <text x="310" y="130" font-family="Arial" font-size="12" font-style="italic">+ initView(): void</text>
+  <text x="310" y="145" font-family="Arial" font-size="12" font-style="italic">+ initEventDefine(): void</text>
+  
+  <!-- LoginInit 抽象类 -->
+  <rect x="300" y="200" width="200" height="100" fill="#E8F4F9" stroke="#2980B9" stroke-width="2"/>
+  <line x1="300" y1="230" x2="500" y2="230" stroke="#2980B9" stroke-width="2"/>
+  <line x1="300" y1="260" x2="500" y2="260" stroke="#2980B9" stroke-width="2"/>
+  <text x="400" y="220" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">LoginInit</text>
+  <text x="310" y="250" font-family="Arial" font-size="12">+ login_button: Button</text>
+  <text x="310" y="280" font-family="Arial" font-size="12">+ userId: TextField</text>
+  
+  <!-- LoginController 类 -->
+  <rect x="300" y="350" width="200" height="100" fill="#EAFAF1" stroke="#27AE60" stroke-width="2"/>
+  <line x1="300" y1="380" x2="500" y2="380" stroke="#27AE60" stroke-width="2"/>
+  <line x1="300" y1="410" x2="500" y2="410" stroke="#27AE60" stroke-width="2"/>
+  <text x="400" y="370" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">LoginController</text>
+  <text x="310" y="400" font-family="Arial" font-size="12">+ initView(): void</text>
+  <text x="310" y="430" font-family="Arial" font-size="12">+ initEventDefine(): void</text>
+  
+  <!-- ILoginMethod 接口 -->
+  <rect x="550" y="200" width="200" height="100" fill="#FEF9E7" stroke="#F39C12" stroke-width="2"/>
+  <line x1="550" y1="230" x2="750" y2="230" stroke="#F39C12" stroke-width="2"/>
+  <line x1="550" y1="260" x2="750" y2="260" stroke="#F39C12" stroke-width="2"/>
+  <text x="650" y="220" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">«interface»</text>
+  <text x="650" y="240" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">ILoginMethod</text>
+  <text x="560" y="280" font-family="Arial" font-size="12">+ doShow(): void</text>
+  <text x="560" y="300" font-family="Arial" font-size="12">+ doLoginError(): void</text>
+  <text x="560" y="320" font-family="Arial" font-size="12">+ doLoginSuccess(): void</text>
+  
+  <!-- ILoginEvent 接口 -->
+  <rect x="50" y="200" width="200" height="80" fill="#FEF9E7" stroke="#F39C12" stroke-width="2"/>
+  <line x1="50" y1="230" x2="250" y2="230" stroke="#F39C12" stroke-width="2"/>
+  <line x1="50" y1="260" x2="250" y2="260" stroke="#F39C12" stroke-width="2"/>
+  <text x="150" y="220" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">«interface»</text>
+  <text x="150" y="240" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">ILoginEvent</text>
+  <text x="60" y="280" font-family="Arial" font-size="12">+ doLoginCheck(String, String): void</text>
+  
+  <!-- LoginView 类 -->
+  <rect x="50" y="350" width="200" height="80" fill="#EAFAF1" stroke="#27AE60" stroke-width="2"/>
+  <line x1="50" y1="380" x2="250" y2="380" stroke="#27AE60" stroke-width="2"/>
+  <line x1="50" y1="410" x2="250" y2="410" stroke="#27AE60" stroke-width="2"/>
+  <text x="150" y="370" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">LoginView</text>
+  <text x="60" y="400" font-family="Arial" font-size="12">- loginInit: LoginInit</text>
+  <text x="60" y="430" font-family="Arial" font-size="12">- loginEvent: ILoginEvent</text>
+  
+  <!-- LoginEventDefine 类 -->
+  <rect x="550" y="350" width="200" height="100" fill="#EAFAF1" stroke="#27AE60" stroke-width="2"/>
+  <line x1="550" y1="380" x2="750" y2="380" stroke="#27AE60" stroke-width="2"/>
+  <line x1="550" y1="410" x2="750" y2="410" stroke="#27AE60" stroke-width="2"/>
+  <text x="650" y="370" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">LoginEventDefine</text>
+  <text x="560" y="400" font-family="Arial" font-size="12">- loginInit: LoginInit</text>
+  <text x="560" y="430" font-family="Arial" font-size="12">- loginEvent: ILoginEvent</text>
+  <text x="560" y="450" font-family="Arial" font-size="12">- loginMethod: ILoginMethod</text>
+  
+  <!-- 继承关系 -->
+  <line x1="400" y1="150" x2="400" y2="200" stroke="#2C3E50" stroke-width="2"/>
+  <polygon points="400,200 395,190 405,190" fill="#2C3E50"/>
+  
+  <line x1="400" y1="300" x2="400" y2="350" stroke="#2C3E50" stroke-width="2"/>
+  <polygon points="400,350 395,340 405,340" fill="#2C3E50"/>
+  
+  <!-- 实现关系 -->
+  <line x1="500" y1="380" x2="550" y2="280" stroke="#2C3E50" stroke-width="2" stroke-dasharray="5,5"/>
+  <polygon points="550,280 540,285 545,275" fill="#2C3E50"/>
+  
+  <!-- 关联关系 -->
+  <line x1="300" y1="380" x2="250" y2="380" stroke="#2C3E50" stroke-width="2"/>
+  <polygon points="250,380 260,375 260,385" fill="#2C3E50"/>
+  
+  <line x1="500" y1="380" x2="550" y2="380" stroke="#2C3E50" stroke-width="2"/>
+  <polygon points="550,380 540,375 540,385" fill="#2C3E50"/>
+  
+  <line x1="400" y1="200" x2="150" y2="260" stroke="#2C3E50" stroke-width="2"/>
+  <polygon points="150,260 160,255 155,265" fill="#2C3E50"/>
+  
+  <!-- 图例 -->
+  <rect x="600" y="500" width="20" height="20" fill="#E8F4F9" stroke="#2980B9" stroke-width="2"/>
+  <text x="630" y="515" font-family="Arial" font-size="12">抽象类</text>
+  
+  <rect x="600" y="530" width="20" height="20" fill="#EAFAF1" stroke="#27AE60" stroke-width="2"/>
+  <text x="630" y="545" font-family="Arial" font-size="12">具体类</text>
+  
+  <rect x="600" y="560" width="20" height="20" fill="#FEF9E7" stroke="#F39C12" stroke-width="2"/>
+  <text x="630" y="575" font-family="Arial" font-size="12">接口</text>
+  
+  <line x1="600" y1="590" x2="620" y2="590" stroke="#2C3E50" stroke-width="2"/>
+  <polygon points="620,590 615,585 615,595" fill="#2C3E50"/>
+  <text x="630" y="595" font-family="Arial" font-size="12">继承/实现</text>
+  
+  <line x1="600" y1="610" x2="620" y2="610" stroke="#2C3E50" stroke-width="2"/>
+  <polygon points="620,610 610,605 610,615" fill="#2C3E50"/>
+  <text x="630" y="615" font-family="Arial" font-size="12">关联</text>
+</svg>
